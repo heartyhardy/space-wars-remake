@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4642819054315746}
   - component: {fileID: 212180460052275568}
   - component: {fileID: 114886946573479320}
+  - component: {fileID: 114001403494913824}
+  - component: {fileID: 58213906681516496}
   m_Layer: 0
   m_Name: Enemy-CarverThug
   m_TagString: Untagged
@@ -35,12 +37,44 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201268229324968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5763621, y: 2.9064684, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58213906681516496
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201268229324968}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.011189818}
+  serializedVersion: 2
+  m_Radius: 0.3866712
+--- !u!114 &114001403494913824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201268229324968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a5b2d2d3369aa4d9017e83a362941d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heathPoints: 600
+  fireCooldown: 0
+  maxFireCD: 4
+  minFireCD: 1.5
+  basicWeapon: {fileID: 1282693253782364, guid: 65264ca01b7e4ba4d8544223693f1b1a,
+    type: 2}
 --- !u!114 &114886946573479320
 MonoBehaviour:
   m_ObjectHideFlags: 1

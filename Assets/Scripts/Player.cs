@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     const float VIEW_PADDING = 1f;
 
     [SerializeField] private GameObject playerWeapon;
-    [SerializeField] private float projectileSpeed = 20f;
     [SerializeField] private float projectileCooldown = 0.05f;
 
     Coroutine fireCoroutine;
@@ -55,6 +54,8 @@ public class Player : MonoBehaviour
                    transform.position,
                    Quaternion.identity
                 );
+
+            float projectileSpeed = projectile.GetComponent<DamageDealer>().getProjectileSpeed();
 
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(
                     0,

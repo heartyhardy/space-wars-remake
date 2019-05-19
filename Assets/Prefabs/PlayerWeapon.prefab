@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212200645984510654}
   - component: {fileID: 50282821875666484}
   - component: {fileID: 70066958568722204}
+  - component: {fileID: 114152739758502270}
   m_Layer: 0
   m_Name: PlayerWeapon
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1677086579622544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,12 +72,26 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.13, y: 0.37}
   m_Direction: 0
+--- !u!114 &114152739758502270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1677086579622544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b11e9563d269546b32c3bb232c7836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  projectileSpeed: 10
+  isEnemy: 0
 --- !u!212 &212200645984510654
 SpriteRenderer:
   m_ObjectHideFlags: 1
