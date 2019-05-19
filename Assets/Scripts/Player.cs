@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("HP")]
+    [SerializeField] float healthPoints = 500f;
 
+    [Header("Movement")]
     [SerializeField] private float horizontalMoveSpeed = 7f;
     [SerializeField] private float verticalMoveSpeed = 10f;
 
@@ -15,8 +18,8 @@ public class Player : MonoBehaviour
     private float viewYMax;
     const float VIEW_PADDING = 1f;
 
+    [Header("Weapons")]
     [SerializeField] private GameObject playerWeapon;
-    [SerializeField] private float projectileCooldown = 0.05f;
 
     Coroutine fireCoroutine;
 
@@ -31,6 +34,16 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    private void setHP(float hp)
+    {
+        this.healthPoints = hp;
+    }
+
+    public float getHP()
+    {
+        return this.healthPoints;
     }
 
     private void Fire()
@@ -56,13 +69,14 @@ public class Player : MonoBehaviour
                 );
 
             float projectileSpeed = projectile.GetComponent<DamageDealer>().getProjectileSpeed();
+            float projectileCD = projectile.GetComponent<DamageDealer>().getProjectileCD();
 
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(
                     0,
                     projectileSpeed
                 );
 
-            yield return new WaitForSeconds(projectileCooldown);
+            yield return new WaitForSeconds(projectileCD);
         }
     }
 
@@ -78,6 +92,26 @@ public class Player : MonoBehaviour
                newXPos,
                newYPos
             );
+    }
+
+    private void OnTriggerEnter2D(Collider2D collisionObject)
+    {
+        DamageDealer dmg = collisionObject.GetComponent<DamageDealer>();
+        ProcessHit(dmg);
+    }
+
+    private void ProcessHit(DamageDealer dmg)
+    {
+        setHP(
+            (healthPoints - dmg.getDmg() > 0) ? healthPoints - dmg.getDmg() : 0
+        );
+
+        dmg.OnHit();
+
+        if (healthPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void SetMoveBoundaries()

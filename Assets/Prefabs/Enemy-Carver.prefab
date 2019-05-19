@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114886946573479320}
   - component: {fileID: 114774759149948292}
   - component: {fileID: 58150843712115616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy-Carver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,10 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a5b2d2d3369aa4d9017e83a362941d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heathPoints: 500
-  fireCooldown: 0
-  maxFireCD: 4
-  minFireCD: 2
+  healthPoints: 200
+  fireCDRandomness: 1
   basicWeapon: {fileID: 1282693253782364, guid: 9380a369a9a7b8f40b019f80cb18ef55,
     type: 2}
 --- !u!114 &114886946573479320

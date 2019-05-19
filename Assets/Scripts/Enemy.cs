@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("HP")]
+    [SerializeField] float healthPoints = 200f;    
 
-    [SerializeField] float heathPoints = 200f;
-    [SerializeField] float fireCooldown;
-    [SerializeField] float maxFireCD = 2f;
-    [SerializeField] float minFireCD = .5f;
+    [Header("Attack Attributes")]
+    [SerializeField] float fireCDRandomness = 1f;
+
+    [Header("Weapons")]
     [SerializeField] GameObject basicWeapon;
+
+    float baseFireCD = 0f;
+    float fireCooldown;
 
     // Use this for initialization
     void Start()
     {
-        fireCooldown = UnityEngine.Random.Range(minFireCD, maxFireCD);
+        baseFireCD = basicWeapon.GetComponent<DamageDealer>().getProjectileCD();
+        fireCooldown = UnityEngine.Random.Range(
+            (baseFireCD - fireCDRandomness) > 0 ? (baseFireCD - fireCDRandomness) : fireCDRandomness,
+            baseFireCD + fireCDRandomness
+            );
     }
 
     // Update is called once per frame
@@ -43,40 +52,41 @@ public class Enemy : MonoBehaviour
                 0,
                 -projectileSpeed
             );
-
-        fireCooldown = UnityEngine.Random.Range(minFireCD, maxFireCD);
+        
+        fireCooldown = UnityEngine.Random.Range(
+            (baseFireCD - fireCDRandomness) > 0 ? (baseFireCD - fireCDRandomness) : fireCDRandomness,
+            baseFireCD + fireCDRandomness
+            );
 
     }
 
     private void setHP(float hp)
     {
-        this.heathPoints = hp;
+        this.healthPoints = hp;
     }
 
     public float getHP()
     {
-        return heathPoints;
+        return healthPoints;
     }
 
     private void OnTriggerEnter2D(Collider2D collisionObject)
     {
         DamageDealer dmg = collisionObject.GetComponent<DamageDealer>();
-        ProcessHit(dmg, dmg.IsEnemy());
+        ProcessHit(dmg);
     }
 
-    private void ProcessHit(DamageDealer dmg, bool isEnemy)
+    private void ProcessHit(DamageDealer dmg)
     {
-        if (!isEnemy)
-        {
-
         setHP(
-            (heathPoints - dmg.getDmg() > 0) ? heathPoints - dmg.getDmg() : 0
+            (healthPoints - dmg.getDmg() > 0) ? healthPoints - dmg.getDmg() : 0
         );
 
-            if (heathPoints <= 0)
-            {
-                Destroy(gameObject);
-            }
+        dmg.OnHit();
+
+        if (healthPoints <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageDealer : MonoBehaviour {
 
+    [Header("Damage Attributes")]
     [SerializeField] float damage = 100.0f;
     [SerializeField] float projectileSpeed = 2f;
-    [SerializeField] bool isEnemy = false;
+    [SerializeField] float projectileCooldown = 1f;
 
     public float getDmg()
     {
@@ -23,13 +25,9 @@ public class DamageDealer : MonoBehaviour {
         return projectileSpeed;
     }
 
-    public bool IsEnemy()
+    public float getProjectileCD()
     {
-        return this.isEnemy;
+        return projectileCooldown;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //OnHit();
-    }
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50661994576566562}
   - component: {fileID: 70064078384361534}
   - component: {fileID: 114377285747651142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBasicWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  projectileSpeed: 6
-  isEnemy: 1
+  projectileSpeed: 8
+  projectileCooldown: 1
 --- !u!212 &212991898533031114
 SpriteRenderer:
   m_ObjectHideFlags: 1
