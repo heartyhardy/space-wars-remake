@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114001403494913824}
   - component: {fileID: 58213906681516496}
   - component: {fileID: 114650015723420892}
+  - component: {fileID: 114354664891824204}
   m_Layer: 9
   m_Name: Enemy-CarverThug
   m_TagString: Untagged
@@ -74,6 +75,21 @@ MonoBehaviour:
   fireCDRandomness: 1
   basicWeapon: {fileID: 1282693253782364, guid: 65264ca01b7e4ba4d8544223693f1b1a,
     type: 2}
+--- !u!114 &114354664891824204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201268229324968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b9f470ffe628f45a73b2f39e398dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit: {fileID: 8300000, guid: b0c5ef28c3813e64a8e76a47524e66fa, type: 3}
+  on_hit_volume: 0.5
+  onFire: {fileID: 8300000, guid: f7bdf0d7c7f635e47adcd59256be13d9, type: 3}
+  on_fire_volume: 0.75
 --- !u!114 &114650015723420892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,7 +104,7 @@ MonoBehaviour:
   vfx: {fileID: 1938868570488268, guid: 90a7285b300349d4291bc9fbc42c8b93, type: 2}
   duration: 1
   sfx: {fileID: 8300000, guid: fdf86695d07d67c49ac79749945af053, type: 3}
-  volume: 0.75
+  volume: 1
 --- !u!114 &114886946573479320
 MonoBehaviour:
   m_ObjectHideFlags: 1

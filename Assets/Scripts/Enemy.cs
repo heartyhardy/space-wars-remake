@@ -10,12 +10,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Attack Attributes")]
     [SerializeField] float fireCDRandomness = 1f;
+    float baseFireCD = 0f;
+    float fireCooldown;
 
     [Header("Weapons")]
     [SerializeField] GameObject basicWeapon;
-
-    float baseFireCD = 0f;
-    float fireCooldown;
 
     // Use this for initialization
     void Start()

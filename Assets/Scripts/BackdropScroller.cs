@@ -7,8 +7,7 @@ public class BackdropScroller : MonoBehaviour {
     [Header("Scrolling Attributes")]
     [SerializeField] float yOffsetSpeed = .01f;
 
-    [Header("Material")]
-    [SerializeField] Material offsetSource;
+    Material offsetSource;
 
     private Vector2 offsetVector;
 
