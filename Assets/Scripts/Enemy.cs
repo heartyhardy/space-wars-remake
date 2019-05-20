@@ -87,6 +87,21 @@ public class Enemy : MonoBehaviour
         if (healthPoints <= 0)
         {
             Destroy(gameObject);
+            playDeathAnimation();
         }
+    }
+
+    private void playDeathAnimation()
+    {
+        GameObject deathVfx = gameObject.GetComponent<DeathAnimation>().getEffect();
+        float duration = gameObject.GetComponent<DeathAnimation>().getDuration();
+
+        GameObject explosion = Instantiate(
+                deathVfx,
+                transform.position,
+                Quaternion.identity
+            );
+        Destroy(explosion, duration);
+
     }
 }

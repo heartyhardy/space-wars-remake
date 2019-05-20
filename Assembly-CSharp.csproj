@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BackdropScroller.cs" />
     <Compile Include="Assets\Scripts\DamageDealer.cs" />
+    <Compile Include="Assets\Scripts\DeathAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyPathing.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
@@ -82,12 +83,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Unity/Learning/Projects/Udemy 2D/Repos/Helloworld/Space Wars II/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>D:/Unity/Learning/Projects/Udemy 2D/Repos/Helloworld/Space Wars II/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>D:/Unity/Learning/Projects/Udemy 2D/Repos/Helloworld/Space Wars II/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Software/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
