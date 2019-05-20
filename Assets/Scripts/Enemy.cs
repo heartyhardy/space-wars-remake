@@ -52,12 +52,19 @@ public class Enemy : MonoBehaviour
                 0,
                 -projectileSpeed
             );
-        
+
+        PlayOnFireFeedback();
+
         fireCooldown = UnityEngine.Random.Range(
             (baseFireCD - fireCDRandomness) > 0 ? (baseFireCD - fireCDRandomness) : fireCDRandomness,
             baseFireCD + fireCDRandomness
             );
 
+    }
+
+    private void PlayOnFireFeedback()
+    {
+        gameObject.GetComponent<AuditoryFeedback>().playOnFireFeedback();
     }
 
     private void setHP(float hp)
@@ -83,23 +90,41 @@ public class Enemy : MonoBehaviour
         );
 
         dmg.OnHit();
+        playOnHitFeedback();
 
         if (healthPoints <= 0)
         {
-            Destroy(gameObject);
-            playDeathAnimation();
+            Die();
         }
+    }
+
+    private void playOnHitFeedback()
+    {
+        gameObject.GetComponent<AuditoryFeedback>().playOnHitFeedback();
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        playDeathAnimation();
     }
 
     private void playDeathAnimation()
     {
-        GameObject deathVfx = gameObject.GetComponent<DeathAnimation>().getEffect();
+        GameObject deathVfx = gameObject.GetComponent<DeathAnimation>().getVFX();
+        AudioClip deathSfx = gameObject.GetComponent<DeathAnimation>().getSFX();
         float duration = gameObject.GetComponent<DeathAnimation>().getDuration();
+        float volume = gameObject.GetComponent<DeathAnimation>().getSfxVolume();
 
         GameObject explosion = Instantiate(
                 deathVfx,
                 transform.position,
                 Quaternion.identity
+            );
+        AudioSource.PlayClipAtPoint(
+                deathSfx,
+                Camera.main.transform.position,
+                volume
             );
         Destroy(explosion, duration);
 

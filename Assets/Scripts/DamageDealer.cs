@@ -29,5 +29,4 @@ public class DamageDealer : MonoBehaviour {
     {
         return projectileCooldown;
     }
-
 }

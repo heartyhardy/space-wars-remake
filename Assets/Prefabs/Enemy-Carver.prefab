@@ -70,7 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ee5262bdf0a434a9d7313addaafb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 1047561132560450, guid: b5d00d15f322fd841afce9e7d8774963, type: 2}
+  vfx: {fileID: 1047561132560450, guid: b5d00d15f322fd841afce9e7d8774963, type: 2}
+  duration: 1
+  sfx: {fileID: 8300000, guid: d0cb9f0bb278d994ba8517827f5b638a, type: 3}
+  volume: 0.25
 --- !u!114 &114774759149948292
 MonoBehaviour:
   m_ObjectHideFlags: 1

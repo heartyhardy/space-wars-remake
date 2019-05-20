@@ -76,8 +76,15 @@ public class Player : MonoBehaviour
                     projectileSpeed
                 );
 
+            PlayOnFireFeedback();
+
             yield return new WaitForSeconds(projectileCD);
         }
+    }
+
+    private void PlayOnFireFeedback()
+    {
+        gameObject.GetComponent<AuditoryFeedback>().playOnFireFeedback();
     }
 
     private void Move()
@@ -107,11 +114,44 @@ public class Player : MonoBehaviour
         );
 
         dmg.OnHit();
+        playOnHitFeedback();
 
         if (healthPoints <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        playDeathAnimation();
+    }
+
+    private void playOnHitFeedback()
+    {
+        gameObject.GetComponent<AuditoryFeedback>().playOnHitFeedback();
+    }
+
+    private void playDeathAnimation()
+    {
+        GameObject deathVfx = gameObject.GetComponent<DeathAnimation>().getVFX();
+        AudioClip deathSfx = gameObject.GetComponent<DeathAnimation>().getSFX();
+        float duration = gameObject.GetComponent<DeathAnimation>().getDuration();
+        float volume = gameObject.GetComponent<DeathAnimation>().getSfxVolume();
+
+        GameObject explosion = Instantiate(
+                deathVfx,
+                transform.position,
+                Quaternion.identity
+            );
+        AudioSource.PlayClipAtPoint(
+                deathSfx,
+                Camera.main.transform.position,
+                volume
+            );
+        Destroy(explosion, duration);
+
     }
 
     private void SetMoveBoundaries()
