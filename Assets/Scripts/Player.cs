@@ -119,7 +119,13 @@ public class Player : MonoBehaviour
         if (healthPoints <= 0)
         {
             Die();
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        FindObjectOfType<Level>().LoadGameOverMenu();
     }
 
     private void Die()
