@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("HP")]
     [SerializeField] float healthPoints = 500f;
+    [SerializeField] float maxHealthPoints = 500f;
 
     [Header("Movement")]
     [SerializeField] private float horizontalMoveSpeed = 7f;
@@ -44,6 +45,16 @@ public class Player : MonoBehaviour
     public float getHP()
     {
         return this.healthPoints;
+    }
+
+    public float getMaxHP()
+    {
+        return maxHealthPoints;
+    }
+
+    public void setMaxHP(float maxHp)
+    {
+        this.maxHealthPoints=maxHp;
     }
 
     private void Fire()

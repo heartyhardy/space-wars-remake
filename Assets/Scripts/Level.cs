@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour {
 
-    [Header("Load")]
-    [SerializeField] [Range(2f,5f)] float loadDelay = 3f;
+    [Header("Audio Related")]
+    [SerializeField] [Range(.25f,1f)] float loadDelay = .25f;
+    [SerializeField] [Range(.15f, .5f)] float volumeReduction = .15f;
 
     public void LoadStartMenu()
     {
@@ -35,20 +36,10 @@ public class Level : MonoBehaviour {
         SceneManager.LoadScene("StartMenu");
     }
 
-    private IEnumerator FadeTrackVolume()
-    {
-        AudioSource audioSource = FindObjectOfType<MusicSource>().GetAudioSource();
-
-        while (audioSource.volume > 0)
-        {
-            audioSource.volume -= 0.15f;
-            yield return new WaitForSeconds(.25f);
-        }
-    }
-
     private IEnumerator GameOn()
     {
         yield return StartCoroutine(FadeTrackVolume());
+        FindObjectOfType<GameSession>().ResetScore();
         SceneManager.LoadScene("Game");
     }
 
@@ -56,5 +47,16 @@ public class Level : MonoBehaviour {
     {
         yield return StartCoroutine(FadeTrackVolume());
         SceneManager.LoadScene("GameOver");
+    }
+
+    private IEnumerator FadeTrackVolume()
+    {
+        AudioSource audioSource = FindObjectOfType<MusicSource>().GetAudioSource();
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= volumeReduction;
+            yield return new WaitForSeconds(loadDelay);
+        }
     }
 }

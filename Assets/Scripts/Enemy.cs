@@ -106,6 +106,13 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         playDeathAnimation();
+        GrantScoreReward();
+    }
+
+    private void GrantScoreReward()
+    {
+        int scoreReward = GetComponent<EnemyDrops>().getScoreReward();
+        FindObjectOfType<GameSession>().addToScore(scoreReward);
     }
 
     private void playDeathAnimation()

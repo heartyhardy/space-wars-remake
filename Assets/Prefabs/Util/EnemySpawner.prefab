@@ -56,3 +56,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa039d2e6c49f9f4680e048c07fda31e, type: 2}
   - {fileID: 11400000, guid: 6769fa67a5548c44e82edf31961b4ca6, type: 2}
   - {fileID: 11400000, guid: 69d76a39b109e5449b02765bca0f3130, type: 2}
+  spawnLooping: 0
