@@ -15,7 +15,7 @@ public class AuditoryFeedback : MonoBehaviour {
     [SerializeField] [Range(1, 0)] float on_fire_volume=1f;
 
 
-    public void playOnHitFeedback()
+    public void PlayOnHitFeedback()
     {
         AudioSource.PlayClipAtPoint(
                 onHit,
@@ -24,7 +24,7 @@ public class AuditoryFeedback : MonoBehaviour {
             );
     }
 
-    public void playOnFireFeedback()
+    public void PlayOnFireFeedback()
     {
         AudioSource.PlayClipAtPoint(
                 onFire,

@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void PlayOnFireFeedback()
     {
-        gameObject.GetComponent<AuditoryFeedback>().playOnFireFeedback();
+        gameObject.GetComponent<AuditoryFeedback>().PlayOnFireFeedback();
     }
 
     private void Move()
@@ -147,7 +147,10 @@ public class Player : MonoBehaviour
 
     private void playOnHitFeedback()
     {
-        gameObject.GetComponent<AuditoryFeedback>().playOnHitFeedback();
+        //Visual
+        gameObject.GetComponent<VisualFeedback>().PlayOnHitFeedback();
+        //Auditory
+        gameObject.GetComponent<AuditoryFeedback>().PlayOnHitFeedback();
     }
 
     private void playDeathAnimation()

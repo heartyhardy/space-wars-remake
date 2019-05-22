@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     private void PlayOnFireFeedback()
     {
-        gameObject.GetComponent<AuditoryFeedback>().playOnFireFeedback();
+        gameObject.GetComponent<AuditoryFeedback>().PlayOnFireFeedback();
     }
 
     private void setHP(float hp)
@@ -99,7 +99,8 @@ public class Enemy : MonoBehaviour
 
     private void playOnHitFeedback()
     {
-        gameObject.GetComponent<AuditoryFeedback>().playOnHitFeedback();
+        gameObject.GetComponent<VisualFeedback>().PlayOnHitFeedback();
+        gameObject.GetComponent<AuditoryFeedback>().PlayOnHitFeedback();
     }
 
     private void Die()

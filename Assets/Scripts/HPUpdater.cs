@@ -33,8 +33,6 @@ public class HPUpdater : MonoBehaviour {
 
     private string getHPBars(float hp, float maxHp)
     {
-        Debug.Log(hp + "/" + maxHp);
-
         float perBarValue = maxHp / hpBars;
         int currentBars = (hp >= perBarValue) ? Mathf.RoundToInt(hp / perBarValue) : 1;
         string hpBarsStr = new string('|', currentBars);
